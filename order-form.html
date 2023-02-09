@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <title>Inspection Fee Calculator</title>
+    <meta name="description" content="Home Inspection Fee Calculator/Generator">
+    <meta name="author" content="Reagan DeLong">
+    <script>
+        function checkvalue(val) {
+            if(val === "other")
+                document.getElementById("other").style.display="block";
+           else    
+                document.getElementById("other").style.display="none";
+        }
+        
+    </script>
+</head>
+
+<body>
+    <div class="title">
+        <img src="https://i.imgur.com/zt25kJo.png" alt="Company Logo">
+        <h1> Order Form & Fee Calculator</h1>
+    </div>
+
+    <div class="container">
+        <div class="client-info">
+            <h2>Client Info</h2>
+            <form>
+                <label for="name">First & Last Name</label>
+                <input type="text" id="name" name="name">
+                <br><br>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email">
+                <br><br>
+                <label for="cell">Cell Phone #</label>
+                <input type="text" id="cell" name="cell">
+            </form>
+        </div>
+
+        <div class="order-info">
+            <h2>Order Info</h2>
+            <form>
+                <label for="order-date">Order Date</label>
+                <input type="date" id="order-date" name="order-date">
+                <br><br>
+                <label for="inspection-date">Inspection Date</label>
+                <input type="date" id="order-date" name="order-date">
+                <br><br>
+                <label for="time">Inspection Time</label>
+                <input type="time" id="time" name="time">
+                <br><br>
+                <label for="order-taker">Order Taken By</label>
+                <input type="text" id="order-taker" name="order-taker">
+                <br><br>
+                <label for="referral-source">Referral Source</label>
+                <input type="text" id="referral-source" name="referral-source">
+                <br><br>
+                <label for="attendance">Who will be at the inspection</label>
+                <input type="text" id="attendance" name="attendance">
+                <br><br>
+                <label for="authorized">Inspection Authorized By</label>
+                <select name="authorized" id="authorized" onchange="checkvalue(this.value)">
+                    <option value="agent">Agent</option>
+                    <option value="client">Client</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" placeholder="Other Details" name="other" id="other" style="display: none">
+            </form>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
