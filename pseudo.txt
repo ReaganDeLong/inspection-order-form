@@ -1,0 +1,46 @@
+Create a form with separated areas
+Area 1: Client Info
+    First & Last name
+    E-Mail Address
+    Cell Phone #
+
+Area 2: Order Info
+    Order date
+    Inspection date
+    Inspection Time
+    Order taken by
+    Order source (agent/referral/past customer/etc)
+    Who will be at the inspection
+    Inspection Authorized by
+
+Area 3: Property Info
+    Address - Link to searches, calculate distance from my home
+    Lot / Unit #
+    City
+    Zip
+    Subdivision
+    CBS / Lockbox Code
+    Year Built
+    Square Footage (total area, including unfinished areas)
+    Bedrooms
+    Bathrooms
+    HVAC Systems
+    Kitchens
+    Sales Price
+    Radon Test (y/n)
+    Other items to be inspected (ex: sheds)
+    Inspection Fee (less radon/other)
+    Total Fee
+
+Area 4: Client Agent Info
+    Agent First & Last Name
+    Cell
+    Email
+
+Area 5: LA Info, Other stuff
+    Listing Agent Name
+    Listing Agent phone #
+    Listing Agent Email
+    Additional info (complicated driving directions, buyer/seller notes, etc.)
+
+
