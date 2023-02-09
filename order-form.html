@@ -8,7 +8,498 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
     <title>Inspection Fee Calculator</title>
     <meta name="description" content="Home Inspection Fee Calculator/Generator">
+    <meta name="author" content="Reagan DeLong"><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <title>Inspection Fee Calculator</title>
+    <meta name="description" content="Home Inspection Fee Calculator/Generator">
     <meta name="author" content="Reagan DeLong">
+    <script src="js/main.js"></script>
+
+</head>
+
+<body>
+    <div class="title">
+        <img src="https://i.imgur.com/zt25kJo.png" alt="Company Logo">
+        <h1> Order Form & Fee Calculator</h1>
+    </div>
+
+    <div class="container">
+        <div class="client-info">
+            <h2>Client Info</h2>
+            <form>
+                <label for="name">First & Last Name</label>
+                <input type="text" id="name" name="name">
+                <br><br>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email">
+                <br><br>
+                <label for="cell">Cell Phone #</label>
+                <input type="text" id="cell" name="cell">
+            </form>
+        </div>
+
+        <div class="order-info">
+            <h2>Order Info</h2>
+            <form>
+                <label for="order-date">Order Date</label>
+                <input type="date" id="order-date" name="order-date">
+                <br><br>
+                <label for="inspection-date">Inspection Date</label>
+                <input type="date" id="order-date" name="order-date">
+                <br><br>
+                <label for="time">Inspection Time</label>
+                <input type="time" id="time" name="time">
+                <br><br>
+                <label for="order-taker">Order Taken By</label>
+                <input type="text" id="order-taker" name="order-taker">
+                <br><br>
+                <label for="referral-source">Referral Source</label>
+                <input type="text" id="referral-source" name="referral-source">
+                <br><br>
+                <label for="attendance">Who will be at the inspection</label>
+                <input type="text" id="attendance" name="attendance">
+                <br><br>
+                <label for="authorized">Inspection Authorized By</label>
+                <select name="authorized" id="authorized" onchange="checkvalue(this.value)">
+                    <option value="agent">Agent</option>
+                    <option value="client">Client</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" placeholder="Other Details" name="other" id="other" style="display: none">
+            </form>
+        </div>
+
+
+        <div class="property-info">
+            <h2>Property Info</h2>
+
+    Address - Link to searches, calculate distance from my home
+    Lot / Unit #
+            <form>
+                <label for="city">City</label>
+                <select id="city" name="city">
+                    <option value="">Select City</option>
+                    <option value="Abbeville">Abbeville</option>
+                    <option value="Acworth">Acworth</option>
+                    <option value="Adairsville">Adairsville</option>
+                    <option value="Adel">Adel</option>
+                    <option value="Alamo">Alamo</option>
+                    <option value="Albany">Albany</option>
+                    <option value="Alma">Alma</option>
+                    <option value="Alpharetta">Alpharetta</option>
+                    <option value="Alto">Alto</option>
+                    <option value="Americus">Americus</option>
+                    <option value="Aragon">Aragon</option>
+                    <option value="Arcade">Arcade</option>
+                    <option value="Arlington">Arlington</option>
+                    <option value="Ashburn">Ashburn</option>
+                    <option value="Athens">Athens</option>
+                    <option value="Atlanta">Atlanta</option>
+                    <option value="Auburn">Auburn</option>
+                    <option value="Augusta">Augusta</option>
+                    <option value="Austell">Austell</option>
+                    <option value="Avondale Estates">Avondale Estates</option>
+                    <option value="Bainbridge">Bainbridge</option>
+                    <option value="Baldwin">Baldwin</option>
+                    <option value="Ball Ground">Ball Ground</option>
+                    <option value="Barnesville">Barnesville</option>
+                    <option value="Baxley">Baxley</option>
+                    <option value="Belvedere Park">Belvedere Park</option>
+                    <option value="Berkeley Lake">Berkeley Lake</option>
+                    <option value="Blackshear">Blackshear</option>
+                    <option value="Blairsville">Blairsville</option>
+                    <option value="Blakely">Blakely</option>
+                    <option value="Bloomingdale">Bloomingdale</option>
+                    <option value="Blue Ridge">Blue Ridge</option>
+                    <option value="Bogart">Bogart</option>
+                    <option value="Bonanza">Bonanza</option>
+                    <option value="Boston">Boston</option>
+                    <option value="Bowdon">Bowdon</option>
+                    <option value="Braselton">Braselton</option>
+                    <option value="Bremen">Bremen</option>
+                    <option value="Brookhaven">Brookhaven</option>
+                    <option value="Brooklet">Brooklet</option>
+                    <option value="Broxton">Broxton</option>
+                    <option value="Brunswick">Brunswick</option>
+                    <option value="Buchanan">Buchanan</option>
+                    <option value="Buena Vista">Buena Vista</option>
+                    <option value="Buford">Buford</option>
+                    <option value="Butler">Butler</option>
+                    <option value="Byron">Byron</option>
+                    <option value="Cairo">Cairo</option>
+                    <option value="Calhoun">Calhoun</option>
+                    <option value="Camilla">Camilla</option>
+                    <option value="Candler-McAfee">Candler-McAfee</option>
+                    <option value="Canton">Canton</option>
+                    <option value="Carnesville">Carnesville</option>
+                    <option value="Carrollton">Carrollton</option>
+                    <option value="Cartersville">Cartersville</option>
+                    <option value="Cave Spring">Cave Spring</option>
+                    <option value="Cedartown">Cedartown</option>
+                    <option value="Centerville">Centerville</option>
+                    <option value="Chamblee">Chamblee</option>
+                    <option value="Chatsworth">Chatsworth</option>
+                    <option value="Chattahoochee Hills">Chattahoochee Hills</option>
+                    <option value="Chattanooga Valley">Chattanooga Valley</option>
+                    <option value="Chester">Chester</option>
+                    <option value="Chickamauga">Chickamauga</option>
+                    <option value="Clarkesville">Clarkesville</option>
+                    <option value="Clarkston">Clarkston</option>
+                    <option value="Claxton">Claxton</option>
+                    <option value="Clayton">Clayton</option>
+                    <option value="Cleveland">Cleveland</option>
+                    <option value="Cochran">Cochran</option>
+                    <option value="College Park">College Park</option>
+                    <option value="Colquitt">Colquitt</option>
+                    <option value="Columbus">Columbus</option>
+                    <option value="Comer">Comer</option>
+                    <option value="Commerce">Commerce</option>
+                    <option value="Conley">Conley</option>
+                    <option value="Conyers">Conyers</option>
+                    <option value="Cordele">Cordele</option>
+                    <option value="Cornelia">Cornelia</option>
+                    <option value="Country Club Estates">Country Club Estates</option>
+                    <option value="Covington">Covington</option>
+                    <option value="Crawfordville">Crawfordville</option>
+                    <option value="Cumming">Cumming</option>
+                    <option value="Cusseta">Cusseta</option>
+                    <option value="Cuthbert">Cuthbert</option>
+                    <option value="Dacula">Dacula</option>
+                    <option value="Dahlonega">Dahlonega</option>
+                    <option value="Dallas">Dallas</option>
+                    <option value="Dalton">Dalton</option>
+                    <option value="Danielsville">Danielsville</option>
+                    <option value="Darien">Darien</option>
+                    <option value="Davisboro">Davisboro</option>
+                    <option value="Dawson">Dawson</option>
+                    <option value="Dawsonville">Dawsonville</option>
+                    <option value="Decatur">Decatur</option>
+                    <option value="Deenwood">Deenwood</option>
+                    <option value="Demorest">Demorest</option>
+                    <option value="Dock Junction">Dock Junction</option>
+                    <option value="Donalsonville">Donalsonville</option>
+                    <option value="Doraville">Doraville</option>
+                    <option value="Douglas">Douglas</option>
+                    <option value="Douglasville">Douglasville</option>
+                    <option value="Druid Hills">Druid Hills</option>
+                    <option value="Dublin">Dublin</option>
+                    <option value="Duluth">Duluth</option>
+                    <option value="Dunwoody">Dunwoody</option>
+                    <option value="East Dublin">East Dublin</option>
+                    <option value="East Griffin">East Griffin</option>
+                    <option value="East Newnan">East Newnan</option>
+                    <option value="East Point">East Point</option>
+                    <option value="Eastman">Eastman</option>
+                    <option value="Eatonton">Eatonton</option>
+                    <option value="Edison">Edison</option>
+                    <option value="Elberton">Elberton</option>
+                    <option value="Ellaville">Ellaville</option>
+                    <option value="Ellijay">Ellijay</option>
+                    <option value="Emerson">Emerson</option>
+                    <option value="Enigma">Enigma</option>
+                    <option value="Euharlee">Euharlee</option>
+                    <option value="Evans">Evans</option>
+                    <option value="Experiment">Experiment</option>
+                    <option value="Fair Oaks">Fair Oaks</option>
+                    <option value="Fairburn">Fairburn</option>
+                    <option value="Fairview">Fairview</option>
+                    <option value="Fayetteville">Fayetteville</option>
+                    <option value="Firing Range">Firing Range</option>
+                    <option value="Fitzgerald">Fitzgerald</option>
+                    <option value="Flowery Branch">Flowery Branch</option>
+                    <option value="Folkston">Folkston</option>
+                    <option value="Forest Park">Forest Park</option>
+                    <option value="Forsyth">Forsyth</option>
+                    <option value="Fort Gaines">Fort Gaines</option>
+                    <option value="Fort Oglethorpe">Fort Oglethorpe</option>
+                    <option value="Fort Stewart">Fort Stewart</option>
+                    <option value="Fort Valley">Fort Valley</option>
+                    <option value="Franklin">Franklin</option>
+                    <option value="Franklin Springs">Franklin Springs</option>
+                    <option value="Gainesville">Gainesville</option>
+                    <option value="Garden City">Garden City</option>
+                    <option value="Georgetown">Georgetown</option>
+                    <option value="Gibson">Gibson</option>
+                    <option value="Glennville">Glennville</option>
+                    <option value="Gordon">Gordon</option>
+                    <option value="Grantville">Grantville</option>
+                    <option value="Gray">Gray</option>
+                    <option value="Grayson">Grayson</option>
+                    <option value="Greensboro">Greensboro</option>
+                    <option value="Greenville">Greenville</option>
+                    <option value="Gresham Park">Gresham Park</option>
+                    <option value="Griffin">Griffin</option>
+                    <option value="Grovetown">Grovetown</option>
+                    <option value="Gumlog">Gumlog</option>
+                    <option value="Guyton">Guyton</option>
+                    <option value="Hahira">Hahira</option>
+                    <option value="Hamilton">Hamilton</option>
+                    <option value="Hampton">Hampton</option>
+                    <option value="Hannahs Mill">Hannahs Mill</option>
+                    <option value="Hapeville">Hapeville</option>
+                    <option value="Hardwick">Hardwick</option>
+                    <option value="Harlem">Harlem</option>
+                    <option value="Hartwell">Hartwell</option>
+                    <option value="Hawkinsville">Hawkinsville</option>
+                    <option value="Hazlehurst">Hazlehurst</option>
+                    <option value="Helena">Helena</option>
+                    <option value="Henderson">Henderson</option>
+                    <option value="Hephzibah">Hephzibah</option>
+                    <option value="Hiawassee">Hiawassee</option>
+                    <option value="Hinesville">Hinesville</option>
+                    <option value="Hiram">Hiram</option>
+                    <option value="Hogansville">Hogansville</option>
+                    <option value="Holly Springs">Holly Springs</option>
+                    <option value="Homer">Homer</option>
+                    <option value="Homerville">Homerville</option>
+                    <option value="Hoschton">Hoschton</option>
+                    <option value="Indian Springs">Indian Springs</option>
+                    <option value="Irondale">Irondale</option>
+                    <option value="Irwinton">Irwinton</option>
+                    <option value="Isle of Hope">Isle of Hope</option>
+                    <option value="Jackson">Jackson</option>
+                    <option value="Jasper">Jasper</option>
+                    <option value="Jefferson">Jefferson</option>
+                    <option value="Jeffersonville">Jeffersonville</option>
+                    <option value="Jesup">Jesup</option>
+                    <option value="Johns Creek">Johns Creek</option>
+                    <option value="Jonesboro">Jonesboro</option>
+                    <option value="Kennesaw">Kennesaw</option>
+                    <option value="Kings Bay Base">Kings Bay Base</option>
+                    <option value="Kingsland">Kingsland</option>
+                    <option value="Knoxville">Knoxville</option>
+                    <option value="LaFayette">LaFayette</option>
+                    <option value="LaGrange">LaGrange</option>
+                    <option value="Lake City">Lake City</option>
+                    <option value="Lakeland">Lakeland</option>
+                    <option value="Lakeview">Lakeview</option>
+                    <option value="Lakeview Estates">Lakeview Estates</option>
+                    <option value="Lavonia">Lavonia</option>
+                    <option value="Lawrenceville">Lawrenceville</option>
+                    <option value="Leesburg">Leesburg</option>
+                    <option value="Lexington">Lexington</option>
+                    <option value="Lilburn">Lilburn</option>
+                    <option value="Lincolnton">Lincolnton</option>
+                    <option value="Lindale">Lindale</option>
+                    <option value="Lithia Springs">Lithia Springs</option>
+                    <option value="Lithonia">Lithonia</option>
+                    <option value="Locust Grove">Locust Grove</option>
+                    <option value="Loganville">Loganville</option>
+                    <option value="Lookout Mountain">Lookout Mountain</option>
+                    <option value="Louisville">Louisville</option>
+                    <option value="Lovejoy">Lovejoy</option>
+                    <option value="Ludowici">Ludowici</option>
+                    <option value="Lula">Lula</option>
+                    <option value="Lumber City">Lumber City</option>
+                    <option value="Lumpkin">Lumpkin</option>
+                    <option value="Lyons">Lyons</option>
+                    <option value="Mableton">Mableton</option>
+                    <option value="Macon">Macon</option>
+                    <option value="Madison">Madison</option>
+                    <option value="Manchester">Manchester</option>
+                    <option value="Marietta">Marietta</option>
+                    <option value="Marshallville">Marshallville</option>
+                    <option value="Martinez">Martinez</option>
+                    <option value="Maysville">Maysville</option>
+                    <option value="McCaysville">McCaysville</option>
+                    <option value="McDonough">McDonough</option>
+                    <option value="McRae">McRae</option>
+                    <option value="Meigs">Meigs</option>
+                    <option value="Metter">Metter</option>
+                    <option value="Midway">Midway</option>
+                    <option value="Milledgeville">Milledgeville</option>
+                    <option value="Millen">Millen</option>
+                    <option value="Milton">Milton</option>
+                    <option value="Monroe">Monroe</option>
+                    <option value="Montezuma">Montezuma</option>
+                    <option value="Montgomery">Montgomery</option>
+                    <option value="Monticello">Monticello</option>
+                    <option value="Morgan">Morgan</option>
+                    <option value="Morrow">Morrow</option>
+                    <option value="Moultrie">Moultrie</option>
+                    <option value="Mount Airy">Mount Airy</option>
+                    <option value="Mount Vernon">Mount Vernon</option>
+                    <option value="Mount Zion">Mount Zion</option>
+                    <option value="Mountain City">Mountain City</option>
+                    <option value="Mountain Park">Mountain Park</option>
+                    <option value="Nahunta">Nahunta</option>
+                    <option value="Nashville">Nashville</option>
+                    <option value="Nelson">Nelson</option>
+                    <option value="Newnan">Newnan</option>
+                    <option value="Newton">Newton</option>
+                    <option value="Nicholls">Nicholls</option>
+                    <option value="Nicholson">Nicholson</option>
+                    <option value="Norcross">Norcross</option>
+                    <option value="North Atlanta">North Atlanta</option>
+                    <option value="North Decatur">North Decatur</option>
+                    <option value="North Druid Hills">North Druid Hills</option>
+                    <option value="Oakwood">Oakwood</option>
+                    <option value="Ocilla">Ocilla</option>
+                    <option value="Oglethorpe">Oglethorpe</option>
+                    <option value="Omega">Omega</option>
+                    <option value="Oxford">Oxford</option>
+                    <option value="Palmetto">Palmetto</option>
+                    <option value="Panthersville">Panthersville</option>
+                    <option value="Peachtree City">Peachtree City</option>
+                    <option value="Peachtree Corners">Peachtree Corners</option>
+                    <option value="Pearson">Pearson</option>
+                    <option value="Pelham">Pelham</option>
+                    <option value="Pembroke">Pembroke</option>
+                    <option value="Perry">Perry</option>
+                    <option value="Pine Mountain">Pine Mountain</option>
+                    <option value="Pooler">Pooler</option>
+                    <option value="Port Wentworth">Port Wentworth</option>
+                    <option value="Porterdale">Porterdale</option>
+                    <option value="Powder Springs">Powder Springs</option>
+                    <option value="Preston">Preston</option>
+                    <option value="Putney">Putney</option>
+                    <option value="Quitman">Quitman</option>
+                    <option value="Raoul">Raoul</option>
+                    <option value="Ray City">Ray City</option>
+                    <option value="Redan">Redan</option>
+                    <option value="Reed Creek">Reed Creek</option>
+                    <option value="Reidsville">Reidsville</option>
+                    <option value="Remerton">Remerton</option>
+                    <option value="Reynolds">Reynolds</option>
+                    <option value="Richland">Richland</option>
+                    <option value="Richmond Hill">Richmond Hill</option>
+                    <option value="Rincon">Rincon</option>
+                    <option value="Ringgold">Ringgold</option>
+                    <option value="Riverdale">Riverdale</option>
+                    <option value="Robins Air Force Base">Robins Air Force Base</option>
+                    <option value="Rochelle">Rochelle</option>
+                    <option value="Rockmart">Rockmart</option>
+                    <option value="Rome">Rome</option>
+                    <option value="Rossville">Rossville</option>
+                    <option value="Roswell">Roswell</option>
+                    <option value="Royston">Royston</option>
+                    <option value="Russell">Russell</option>
+                    <option value="Rydal">Rydal</option>
+                    <option value="Saint Simon Mills">Saint Simon Mills</option>
+                    <option value="Saint Simons Island">Saint Simons Island</option>
+                    <option value="Sandersville">Sandersville</option>
+                    <option value="Sandy Springs">Sandy Springs</option>
+                    <option value="Sardis">Sardis</option>
+                    <option value="Savannah">Savannah</option>
+                    <option value="Scottdale">Scottdale</option>
+                    <option value="Senoia">Senoia</option>
+                    <option value="Shannon">Shannon</option>
+                    <option value="Skidaway Island">Skidaway Island</option>
+                    <option value="Smyrna">Smyrna</option>
+                    <option value="Snellville">Snellville</option>
+                    <option value="Social Circle">Social Circle</option>
+                    <option value="Soperton">Soperton</option>
+                    <option value="Sparks">Sparks</option>
+                    <option value="Sparta">Sparta</option>
+                    <option value="Springfield">Springfield</option>
+                    <option value="St. Marys">St. Marys</option>
+                    <option value="Statenville">Statenville</option>
+                    <option value="Statesboro">Statesboro</option>
+                    <option value="Statham">Statham</option>
+                    <option value="Stockbridge">Stockbridge</option>
+                    <option value="Stone Mountain">Stone Mountain</option>
+                    <option value="Stonecrest">Stonecrest</option>
+                    <option value="Sugar Hill">Sugar Hill</option>
+                    <option value="Summerville">Summerville</option>
+                    <option value="Sunnyside">Sunnyside</option>
+                    <option value="Suwanee">Suwanee</option>
+                    <option value="Swainsboro">Swainsboro</option>
+                    <option value="Sylvania">Sylvania</option>
+                    <option value="Sylvester">Sylvester</option>
+                    <option value="Talbotton">Talbotton</option>
+                    <option value="Tallapoosa">Tallapoosa</option>
+                    <option value="Temple">Temple</option>
+                    <option value="Tennille">Tennille</option>
+                    <option value="Thomaston">Thomaston</option>
+                    <option value="Thomasville">Thomasville</option>
+                    <option value="Thomson">Thomson</option>
+                    <option value="Thunderbolt">Thunderbolt</option>
+                    <option value="Tifton">Tifton</option>
+                    <option value="Toccoa">Toccoa</option>
+                    <option value="Trenton">Trenton</option>
+                    <option value="Trion">Trion</option>
+                    <option value="Tucker">Tucker</option>
+                    <option value="Twin City">Twin City</option>
+                    <option value="Tybee Island">Tybee Island</option>
+                    <option value="Tyrone">Tyrone</option>
+                    <option value="Unadilla">Unadilla</option>
+                    <option value="Union City">Union City</option>
+                    <option value="Union Point">Union Point</option>
+                    <option value="Unionville">Unionville</option>
+                    <option value="Valdosta">Valdosta</option>
+                    <option value="Varnell">Varnell</option>
+                    <option value="Vidalia">Vidalia</option>
+                    <option value="Vienna">Vienna</option>
+                    <option value="Villa Rica">Villa Rica</option>
+                    <option value="Vinings">Vinings</option>
+                    <option value="Wadley">Wadley</option>
+                    <option value="Walnut Grove">Walnut Grove</option>
+                    <option value="Walthourville">Walthourville</option>
+                    <option value="Warner Robins">Warner Robins</option>
+                    <option value="Warrenton">Warrenton</option>
+                    <option value="Washington">Washington</option>
+                    <option value="Watkinsville">Watkinsville</option>
+                    <option value="Waycross">Waycross</option>
+                    <option value="Waynesboro">Waynesboro</option>
+                    <option value="West Point">West Point</option>
+                    <option value="West Warrenton">West Warrenton</option>
+                    <option value="Whitemarsh Island">Whitemarsh Island</option>
+                    <option value="Willacoochee">Willacoochee</option>
+                    <option value="Wilmington Island">Wilmington Island</option>
+                    <option value="Winder">Winder</option>
+                    <option value="Winterville">Winterville</option>
+                    <option value="Woodbine">Woodbine</option>
+                    <option value="Woodstock">Woodstock</option>
+                    <option value="Wrens">Wrens</option>
+                    <option value="Wrightsville">Wrightsville</option>
+                    <option value="Young Harris">Young Harris</option>
+                    <option value="Zebulon">Zebulon</option>
+                </select>
+                <br><br>
+                <label for="zip">Zip Code</label>
+                <input type="text" id="zip" name="zip" maxlength="5">
+                <br><br>
+                <label for="subdivision">Subdivision (optional)</label>
+                <input type="text" id="subdivision" name="subidivision">
+                <br><br>
+                <label for="code">CBS / Lockbox Code</label>
+                <input type="text" id="code" name="code">
+                <br><br>
+                <label for="built">Year Built</label>
+                <input type="number" id="built" name="built" min="1850" max="2023">
+                <br><br>
+
+            </form>
+    Subdivision
+    CBS / Lockbox Code
+    Year Built
+    Square Footage (total area, including unfinished areas)
+    Bedrooms
+    Bathrooms
+    HVAC Systems
+    Kitchens
+    Sales Price
+    Radon Test (y/n)
+    Other items to be inspected (ex: sheds)
+    Inspection Fee (less radon/other)
+    Total Fee
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
     <script>
         function checkvalue(val) {
             if(val === "other")
